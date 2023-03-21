@@ -21,8 +21,8 @@ public class ProducerConfiguration {
 
     private String topicName = "weather";
 
-    @Value(value = "${kafka.bootstrapAddress}")
-    private String bootstrapAddress;
+ 
+    private String bootstrapAddress = "kafka:9092";
 
     private Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
