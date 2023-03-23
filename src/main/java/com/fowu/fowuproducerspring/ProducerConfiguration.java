@@ -20,8 +20,8 @@ public class ProducerConfiguration {
 
     private String topicName = "weather";
 
- 
-    private String bootstrapAddress = "kafka:9092";
+
+    private String bootstrapAddress = "kafka:29092";
 
     private Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();
@@ -51,7 +51,7 @@ public class ProducerConfiguration {
         Map<String, Object> configs = new HashMap<>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         return new KafkaAdmin(configs);
-        
+
     }
 
 }
