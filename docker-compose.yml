@@ -1,46 +1,53 @@
 version: '3'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:latest
-    hostname: zookeeper
+    image: bitnami/zookeeper
     container_name: zookeeper
-    networks:
-      - kafka_network
-    ports:
-      - "2181:2181"
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-  kafka:
-    image: confluentinc/cp-kafka:latest
-    hostname: kafka
-    container_name: kafka
+      - ZOO_SERVER_ID=1
+      - ZOO_SERVERS=0.0.0.0:2888:3888
+      - ALLOW_ANONYMOUS_LOGIN=yes
     networks:
       - kafka_network
-    depends_on:
-      - zookeeper
+  kafka:
+    image: bitnami/kafka
+    container_name: kafka
     ports:
       - "9092:9092"
-      - "29092:29092"
+    networks:
+      - kafka_network
     environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL_SAME_HOST://:29092
-      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL_SAME_HOST://kafka:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL_SAME_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      - KAFKA_BROKER_ID=1
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENERS=INTERNAL://:29092,EXTERNAL://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=INTERNAL://kafka:29092,EXTERNAL://localhost:9092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=INTERNAL
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
   producer1:
-    hostname: producer1
+    image: producer1:latest
     container_name: producer1
-    environment:
-      SPRING_KAFKA_BOOTSTRAPSERVERS: kafka:9092
     networks:
       - kafka_network
     depends_on:
       - kafka
     build: .
+  consumer1:
+    build: ../fowu-consumer
+    image: consumer:latest
+    container_name: consumer1
+    depends_on:
+      - kafka
+    networks:
+      - kafka_network
+#  producer2:
+#    hostname: producer2
+#    container_name: producer2
+#    networks:
+#      - kafka_network
+#    depends_on:
+#      - kafka
+#    build: .
 networks:
   kafka_network:
     name: kafka_network
-
-
