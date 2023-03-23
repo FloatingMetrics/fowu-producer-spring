@@ -9,3 +9,5 @@ CMD ["java", "-jar", "target/fowu-producer-spring-0.0.1-SNAPSHOT.jar"]
 
 
 
+
+

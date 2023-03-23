@@ -1,7 +1,7 @@
 version: '3'
 services:
   zookeeper:
-    image: wurstmeister/zookeeper
+    image: confluentinc/cp-zookeeper:latest
     hostname: zookeeper
     container_name: zookeeper
     networks:
@@ -11,7 +11,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
   kafka:
-    image: wurstmeister/kafka
+    image: confluentinc/cp-kafka:latest
     hostname: kafka
     container_name: kafka
     networks:
@@ -23,7 +23,6 @@ services:
       - "29092:29092"
     environment:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      # KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
       KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL_SAME_HOST://:29092
       KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL_SAME_HOST://kafka:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL_SAME_HOST:PLAINTEXT
@@ -40,21 +39,6 @@ services:
     depends_on:
       - kafka
     build: .
-  # consumer1:
-  #   hostname: consumer1
-  #   networks:
-  #     - kafka_network
-  #   depends_on:
-  #     - kafka
-  #   build: .  
-#  producer2:
-#    hostname: producer2
-#    container_name: producer2
-#    networks:
-#      - kafka_network
-#    depends_on:
-#      - kafka
-#    build: .
 networks:
   kafka_network:
     name: kafka_network
