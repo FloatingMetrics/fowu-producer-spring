@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Weather {
 
-    String time;
+    String captureTime;
     double waveHeight;
     double wavePeriod;
     int waveDirection;
@@ -18,7 +18,7 @@ public class Weather {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.yyyy");
 
 
-        this.time = localDateTime.format(formatter);
+        this.captureTime = localDateTime.format(formatter);
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
@@ -26,12 +26,12 @@ public class Weather {
         this.windDirection = windDirection;
     }
 
-    public String getTime() {
-        return time;
+    public String getCaptureTime() {
+        return captureTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setCaptureTime(String captureTime) {
+        this.captureTime = captureTime;
     }
 
     public double getWaveHeight() {
@@ -77,7 +77,7 @@ public class Weather {
     @Override
     public String toString() {
         return "Weather{" +
-                "time=" + time +
+                "time=" + captureTime +
                 ", waveHeight=" + waveHeight +
                 ", wavePeriod=" + wavePeriod +
                 ", waveDirection=" + waveDirection +

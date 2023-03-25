@@ -34,14 +34,14 @@ services:
     depends_on:
       - kafka
     build: .
-  consumer1:
-    build: ../fowu-consumer
-    image: consumer:latest
-    container_name: consumer1
-    depends_on:
-      - kafka
-    networks:
-      - kafka_network
+#  consumer1:
+#    build: ../fowu-consumer
+#    image: consumer:latest
+#    container_name: consumer1
+#    depends_on:
+#      - kafka
+#    networks:
+#      - kafka_network
 #  producer2:
 #    hostname: producer2
 #    container_name: producer2
