@@ -1,11 +1,12 @@
 package com.fowu.fowuproducerspring;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Weather {
 
-    String captureTime;
+    long captureTime;
     double waveHeight;
     double wavePeriod;
     int waveDirection;
@@ -14,11 +15,13 @@ public class Weather {
 
     public Weather(double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
 
-        LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.yyyy");
+        // LocalDateTime localDateTime = LocalDateTime.now();
+        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss
+        // dd.MM.yyyy");
 
+        long epochtime = Instant.now().getEpochSecond();
 
-        this.captureTime = localDateTime.format(formatter);
+        this.captureTime = epochtime;
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
@@ -26,11 +29,11 @@ public class Weather {
         this.windDirection = windDirection;
     }
 
-    public String getCaptureTime() {
+    public long getCaptureTime() {
         return captureTime;
     }
 
-    public void setCaptureTime(String captureTime) {
+    public void setCaptureTime(long captureTime) {
         this.captureTime = captureTime;
     }
 
@@ -86,4 +89,3 @@ public class Weather {
                 '}';
     }
 }
-
