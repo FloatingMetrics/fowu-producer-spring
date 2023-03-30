@@ -6,7 +6,7 @@ public record WeatherData(
                 List<String> time,
                 List<Double> waveHeight,
                 List<Double> wavePeriod,
-                List<Double> windSpeed,
+                List<Integer>waveDirection,
                 List<Integer> windDirection,
-                List<Integer> waveDirection) {
+                List<Double> windSpeed) {
 }

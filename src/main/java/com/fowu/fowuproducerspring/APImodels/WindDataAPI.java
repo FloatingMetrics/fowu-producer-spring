@@ -1,5 +1,7 @@
 package com.fowu.fowuproducerspring.APImodels;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record WindDataAPI(
