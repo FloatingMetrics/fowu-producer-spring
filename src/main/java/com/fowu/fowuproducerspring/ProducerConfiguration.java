@@ -17,9 +17,7 @@ import java.util.Map;
 @Configuration
 public class ProducerConfiguration {
 
-
     private String topicName = "weather";
-
 
     private String bootstrapAddress = "kafka:29092";
 
@@ -43,7 +41,7 @@ public class ProducerConfiguration {
 
     @Bean
     public NewTopic newTopic() {
-        return new NewTopic(topicName, 1, (short)1);
+        return new NewTopic(topicName, 1, (short) 1);
     }
 
     @Bean

@@ -36,7 +36,7 @@ public class WeatherService {
     return weatherData;
   }
 
-  public WaveDataAPI getMarineData() {
+  private WaveDataAPI getMarineData() {
     System.out.println("FETCHING MARINE DATA...");
 
     marineData = RestTemplate.getForObject(
@@ -50,7 +50,7 @@ public class WeatherService {
     return waveData;
   }
 
-  public WindDataAPI getWindData() {
+  private WindDataAPI getWindData() {
     System.out.println("FETCHING WEATHER DATA...");
 
     weatherData = RestTemplate.getForObject(
@@ -58,8 +58,8 @@ public class WeatherService {
             + "&hourly=windspeed_10m,winddirection_10m&windspeed_unit=ms",
         WeatherDataAPI.class);
 
-        assert weatherData != null;
-        windData = weatherData.windData();
+    assert weatherData != null;
+    windData = weatherData.windData();
 
     return windData;
   }
