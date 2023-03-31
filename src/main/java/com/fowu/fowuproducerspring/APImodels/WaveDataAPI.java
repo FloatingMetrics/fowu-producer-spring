@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties
 public record WaveDataAPI(
-                @JsonProperty("time") List<String> time,
-                @JsonProperty("wave_height") List<Double> waveHeight,
-                @JsonProperty("wave_period") List<Double> wavePeriod,
-                @JsonProperty("wave_direction") List<Integer> waveDirection) {
+                @JsonProperty("time") String[] time,
+                @JsonProperty("wave_height") double[] waveHeight,
+                @JsonProperty("wave_period") double[] wavePeriod,
+                @JsonProperty("wave_direction") int[] waveDirection) {
 }
