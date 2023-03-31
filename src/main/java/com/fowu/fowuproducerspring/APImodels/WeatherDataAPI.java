@@ -1,9 +1,9 @@
 package com.fowu.fowuproducerspring.APImodels;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties
 public record WeatherDataAPI(
-    @JsonPropertyDescription("hourly") WindDataAPI windData) {
+    @JsonProperty("hourly") WindDataAPI windData) {
 }

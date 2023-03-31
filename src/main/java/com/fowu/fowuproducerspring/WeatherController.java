@@ -11,7 +11,7 @@ public class WeatherController {
     this.weatherService = weatherService;
   }
 
-  @GetMapping("/weatherdata")
+  @GetMapping("/")
   public WeatherData getWeatherData() {
     return weatherService.getWeatherData();
   }

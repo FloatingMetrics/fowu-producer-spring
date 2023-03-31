@@ -36,26 +36,30 @@ public class WeatherService {
     return weatherData;
   }
 
-  private WaveDataAPI getMarineData() {
+  public WaveDataAPI getMarineData() {
+    System.out.println("FETCHING MARINE DATA...");
+
     marineData = RestTemplate.getForObject(
         "https://marine-api.open-meteo.com/v1/marine?latitude=" + latitude + "&longitude=" + longitude
             + "&hourly=wave_height,wave_direction,wave_period",
         MarineDataAPI.class);
 
     assert marineData != null;
-    waveData = marineData.hourlyData();
 
+    waveData = marineData.hourlyData();
     return waveData;
   }
 
-  private WindDataAPI getWindData() {
+  public WindDataAPI getWindData() {
+    System.out.println("FETCHING WEATHER DATA...");
+
     weatherData = RestTemplate.getForObject(
         "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude
-            + "&hourly=windspeed_10m,winddirection_10m&windspeed_unit=ms&forecast_days=1",
+            + "&hourly=windspeed_10m,winddirection_10m&windspeed_unit=ms",
         WeatherDataAPI.class);
 
-    assert weatherData != null;
-    windData = weatherData.windData();
+        assert weatherData != null;
+        windData = weatherData.windData();
 
     return windData;
   }
