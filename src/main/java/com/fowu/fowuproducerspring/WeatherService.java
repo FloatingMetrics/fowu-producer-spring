@@ -1,5 +1,6 @@
 package com.fowu.fowuproducerspring;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fowu.fowuproducerspring.APImodels.WaveDataAPI;
@@ -7,6 +8,7 @@ import com.fowu.fowuproducerspring.APImodels.MarineDataAPI;
 import com.fowu.fowuproducerspring.APImodels.WeatherDataAPI;
 import com.fowu.fowuproducerspring.APImodels.WindDataAPI;
 
+@Service
 public class WeatherService {
 
   RestTemplate RestTemplate;
