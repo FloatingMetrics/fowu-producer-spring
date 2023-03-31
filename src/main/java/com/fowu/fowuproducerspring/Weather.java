@@ -6,22 +6,22 @@ import java.time.format.DateTimeFormatter;
 
 public class Weather {
 
-    long captureTime;
+    String captureTime;
     double waveHeight;
     double wavePeriod;
     int waveDirection;
     double windSpeed;
     int windDirection;
 
-    public Weather(double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
+    public Weather(String time, double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
 
         // LocalDateTime localDateTime = LocalDateTime.now();
         // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss
         // dd.MM.yyyy");
 
-        long epochtime = Instant.now().getEpochSecond();
+        // long epochtime = Instant.now().getEpochSecond();
 
-        this.captureTime = epochtime;
+        this.captureTime = time;
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
@@ -29,11 +29,11 @@ public class Weather {
         this.windDirection = windDirection;
     }
 
-    public long getCaptureTime() {
+    public String getCaptureTime() {
         return captureTime;
     }
 
-    public void setCaptureTime(long captureTime) {
+    public void setCaptureTime(String captureTime) {
         this.captureTime = captureTime;
     }
 
