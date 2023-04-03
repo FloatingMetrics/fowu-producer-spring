@@ -39,7 +39,7 @@ public class ProducerController {
     return weather;
   }
 
-  @Scheduled(fixedDelay = 2000)
+  @Scheduled(fixedDelay = 500)
   public void send() {
     Weather pointData = weatherDataPoints();
     kafkaTemplate.send("weather", pointData);
