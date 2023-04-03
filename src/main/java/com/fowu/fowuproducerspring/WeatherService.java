@@ -1,5 +1,9 @@
 package com.fowu.fowuproducerspring;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +22,10 @@ public class WeatherService {
   private WindDataAPI windData;
   private final double latitude = 54.3213;
   private final double longitude = 10.1348;
+  private LocalDate dateNow = LocalDate.now();
+  private final LocalDate endDate = dateNow;
+  private final LocalDate startDate = dateNow.minusDays(7);
+  private final String urlLocationAndPeriod = "&latitude=" + latitude + "&longitude=" + longitude + "&start_date=" + startDate + "&end_date=" + endDate;
 
   public WeatherService(RestTemplate restTemplate) {
     this.RestTemplate = restTemplate;
@@ -40,8 +48,7 @@ public class WeatherService {
     System.out.println("FETCHING MARINE DATA...");
 
     marineData = RestTemplate.getForObject(
-        "https://marine-api.open-meteo.com/v1/marine?latitude=" + latitude + "&longitude=" + longitude
-            + "&hourly=wave_height,wave_direction,wave_period",
+        "https://marine-api.open-meteo.com/v1/marine?hourly=wave_height,wave_direction,wave_period" + urlLocationAndPeriod,
         MarineDataAPI.class);
 
     assert marineData != null;
@@ -54,8 +61,7 @@ public class WeatherService {
     System.out.println("FETCHING WEATHER DATA...");
 
     weatherData = RestTemplate.getForObject(
-        "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude
-            + "&hourly=windspeed_10m,winddirection_10m&windspeed_unit=ms",
+        "https://api.open-meteo.com/v1/forecast?hourly=windspeed_10m,winddirection_10m&windspeed_unit=ms" + urlLocationAndPeriod,
         WeatherDataAPI.class);
 
     assert weatherData != null;
