@@ -24,20 +24,18 @@ public class ProducerController {
     if (data == null)
       data = weatherService.getWeatherData();
 
-    if (i > data.waveHeight().length)
+    if (i >= data.waveHeight().length)
       i = 0;
 
     Weather weather = new Weather(
-        data.time()[i++],
-        data.waveHeight()[i++],
-        data.wavePeriod()[i++],
-        data.waveDirection()[i++],
-        data.windSpeed()[i++],
-        data.windDirection()[i++]);
-
-    System.out.println("index: " + i);
-    System.out.println(weather.getCaptureTime());
-
+        data.time()[i],
+        data.waveHeight()[i],
+        data.wavePeriod()[i],
+        data.waveDirection()[i],
+        data.windSpeed()[i],
+        data.windDirection()[i]);
+        
+    i++;
     return weather;
   }
 
