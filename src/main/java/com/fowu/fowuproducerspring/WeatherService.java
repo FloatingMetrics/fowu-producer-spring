@@ -20,8 +20,8 @@ public class WeatherService {
   private WaveDataAPI waveData;
   private WeatherDataAPI weatherData;
   private WindDataAPI windData;
-  private final double latitude = 54.3213;
-  private final double longitude = 10.1348;
+  private final double latitude = 59.316;
+  private final double longitude = 3.738;
   private LocalDate dateNow = LocalDate.now();
   private final LocalDate endDate = dateNow;
   private final LocalDate startDate = dateNow.minusDays(7);
