@@ -1,9 +1,5 @@
 package com.fowu.fowuproducerspring.weather;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class Weather {
 
     String captureTime;
@@ -15,65 +11,11 @@ public class Weather {
 
     public Weather(String time, double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
 
-        // LocalDateTime localDateTime = LocalDateTime.now();
-        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss
-        // dd.MM.yyyy");
-
-        // long epochtime = Instant.now().getEpochSecond();
-
         this.captureTime = time;
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
         this.windSpeed = windSpeed;
-        this.windDirection = windDirection;
-    }
-
-    public String getCaptureTime() {
-        return captureTime;
-    }
-
-    public void setCaptureTime(String captureTime) {
-        this.captureTime = captureTime;
-    }
-
-    public double getWaveHeight() {
-        return waveHeight;
-    }
-
-    public void setWaveHeight(double waveHeight) {
-        this.waveHeight = waveHeight;
-    }
-
-    public double getWavePeriod() {
-        return wavePeriod;
-    }
-
-    public void setWavePeriod(double wavePeriod) {
-        this.wavePeriod = wavePeriod;
-    }
-
-    public int getWaveDirection() {
-        return waveDirection;
-    }
-
-    public void setWaveDirection(int waveDirection) {
-        this.waveDirection = waveDirection;
-    }
-
-    public double getWindSpeed() {
-        return windSpeed;
-    }
-
-    public void setWindSpeed(double windSpeed) {
-        this.windSpeed = windSpeed;
-    }
-
-    public int getWindDirection() {
-        return windDirection;
-    }
-
-    public void setWindDirection(int windDirection) {
         this.windDirection = windDirection;
     }
 
