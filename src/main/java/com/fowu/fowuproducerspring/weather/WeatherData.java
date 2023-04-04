@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring;
+package com.fowu.fowuproducerspring.weather;
 
 public record WeatherData(
     String[] time,

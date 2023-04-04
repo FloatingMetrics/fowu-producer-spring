@@ -5,6 +5,10 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
+import com.fowu.fowuproducerspring.weather.Weather;
+import com.fowu.fowuproducerspring.weather.WeatherData;
+import com.fowu.fowuproducerspring.weather.WeatherService;
+
 @Controller
 public class ProducerController {
 

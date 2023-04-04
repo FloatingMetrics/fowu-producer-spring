@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring;
+package com.fowu.fowuproducerspring.weather;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -11,6 +11,8 @@ import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
+import com.fowu.fowuproducerspring.weather.Weather;
+
 import java.util.HashMap;
 import java.util.Map;
 
