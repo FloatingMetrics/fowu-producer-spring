@@ -11,6 +11,7 @@
     <groupId>com.fowu</groupId>
     <artifactId>fowu-producer-spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <properties>
@@ -44,6 +45,13 @@
         <configuration>
           <mainClass>com.producer.StrainProducerApplication</mainClass>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
