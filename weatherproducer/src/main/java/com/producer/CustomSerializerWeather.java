@@ -1,14 +1,12 @@
-package com.fowu;
+package com.producer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fowu.weather.Weather;
-
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
-public class CustomSerializer implements Serializer<Weather> {
+public class CustomSerializerWeather implements Serializer<Weather> {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

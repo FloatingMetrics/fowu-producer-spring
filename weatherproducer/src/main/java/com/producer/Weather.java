@@ -1,4 +1,4 @@
-package main.java;
+package com.producer;
 
 public class Weather {
 

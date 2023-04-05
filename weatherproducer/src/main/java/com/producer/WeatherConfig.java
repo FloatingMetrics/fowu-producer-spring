@@ -1,9 +1,8 @@
-package main.java;
+package com.producer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fowu.CustomSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,7 +28,8 @@ public class WeatherConfig {
     props.putAll(kafkaConfig.producerProperties());
 
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomSerializer.class);
+    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+              CustomSerializerWeather.class);
     return new DefaultKafkaProducerFactory<>(props);
   }
 
