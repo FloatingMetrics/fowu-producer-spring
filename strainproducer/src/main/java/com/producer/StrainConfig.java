@@ -1,9 +1,7 @@
 package com.producer;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 
-import com.fowu.CustomSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,24 +10,24 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
-import com.fowu.kafkaConfig;
+import java.util.HashMap;
+import java.util.Map;
 
 public class StrainConfig {
 
   @Autowired
-  private kafkaConfig kafkaConfig;
+  private main.java.com.fowu.kafkaConfig kafkaConfig;
 
   @Value("${kafka.topicStrain}")
   private String topicName;
 
   @Bean
   public ProducerFactory<String, Strain> producerFactory() {
-    Map<String, Object> props = new HashMap<>();
-    props.putAll(kafkaConfig.producerProperties());
+    Map<String, Object> props = new HashMap<>(kafkaConfig.producerProperties());
 
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomSerializer.class);
+    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+              CustomSerializerStrain.class);
     return new DefaultKafkaProducerFactory<>(props);
   }
 

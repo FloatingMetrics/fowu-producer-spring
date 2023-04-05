@@ -12,12 +12,11 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
 import com.fasterxml.jackson.databind.ser.std.StringSerializer;
-import com.fowu.kafkaConfig;
 
 public class WeatherConfig {
 
   @Autowired
-  private kafkaConfig kafkaConfig;
+  private main.java.com.fowu.kafkaConfig kafkaConfig;
 
   @Value("${kafka.topicWeather}")
   private String topicName;

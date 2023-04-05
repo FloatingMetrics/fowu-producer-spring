@@ -20,17 +20,14 @@
     </properties>
 
   <dependencies>
-    <!-- dependencies for the producer -->
     <dependency>
       <groupId>com.fowu</groupId>
-      <artifactId>fowu-producer-spring</artifactId>
+      <artifactId>common</artifactId>
       <version>0.0.1-SNAPSHOT</version>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <!-- build configuration for the producer -->
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
@@ -49,6 +46,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>3.2.0</version>
         <configuration>
           <archive>
             <manifest>

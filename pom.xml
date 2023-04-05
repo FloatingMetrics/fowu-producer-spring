@@ -19,11 +19,11 @@
     <java.version>17</java.version>
   </properties>
 
-<!--  <modules>-->
-<!--    <module>common</module>-->
-<!--    <module>strainproducer</module>-->
-<!--    <module>weatherproducer</module>-->
-<!--  </modules>-->
+  <modules>
+    <module>common</module>
+    <module>strainproducer</module>
+    <module>weatherproducer</module>
+  </modules>
 
   <dependencies>
     <dependency>
@@ -83,6 +83,20 @@
             </manifestEntries>
           </archive>
         </configuration>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>pom</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
