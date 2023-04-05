@@ -27,23 +27,39 @@ services:
     depends_on:
       - zookeeper
 
+  producers-common:
+    image: producers-common:latest
+    container_name: producers-common
+    build:
+      context: .
+      dockerfile: ./common/Dockerfile
+    depends_on:
+      - kafka
+    networks:
+      - kafka_network
   weather-producer:
     image: weather-producer:latest
     container_name: weather-producer
-    networks:
-      - kafka_network
+    build:
+      context: .
+      dockerfile: ./weatherproducer/Dockerfile
     depends_on:
       - kafka
-    build: ./weatherproducer
+      - producers-common
+    networks:
+      - kafka_network
 
   strain-producer:
     image: strain-producer:latest
     container_name: strain-producer
-    networks:
-      - kafka_network
+    build:
+      context: .
+      dockerfile: ./strainproducer/Dockerfile
     depends_on:
       - kafka
-    build: ./strainproducer
+      - producers-common
+    networks:
+      - kafka_network
 
 networks:
   kafka_network:
