@@ -5,10 +5,10 @@ import java.time.LocalDate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fowu.APImodels.MarineDataAPI;
-import com.fowu.APImodels.WaveDataAPI;
-import com.fowu.APImodels.WeatherDataAPI;
-import com.fowu.APImodels.WindDataAPI;
+import com.fowu.weather.APImodels.MarineDataAPI;
+import com.fowu.weather.APImodels.WaveDataAPI;
+import com.fowu.weather.APImodels.WeatherDataAPI;
+import com.fowu.weather.APImodels.WindDataAPI;
 
 @Service
 public class WeatherService {
