@@ -1,0 +1,39 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.fowu</groupId>
+  <artifactId>weather</artifactId>
+  <version>1.0.0</version>
+  <parent>
+    <groupId>com.fowu</groupId>
+    <artifactId>fowu-producer-spring</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <dependencies>
+    <!-- dependencies for the producer -->
+  </dependencies>
+  <build>
+    <!-- build configuration for the producer -->
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <mainClass>com.fowu.weather.FowuProducerWeatherApplication</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.fowu.weather.FowuProducerWeatherApplication</mainClass>
+            </manifest>
+          </archive>
+          <outputDirectory>${parent.artifactId}/target/${project.groupId}/${project.artifactId}</outputDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
