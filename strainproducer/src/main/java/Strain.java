@@ -1,4 +1,4 @@
-package com.fowu.strain;
+package main.java;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

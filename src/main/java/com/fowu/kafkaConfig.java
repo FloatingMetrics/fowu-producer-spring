@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**Basic configuration common to all producers.
- * Values are injected from configuration.properties 
+ * Values are injected from configuration.properties
  */
 @Configuration
 public class kafkaConfig {

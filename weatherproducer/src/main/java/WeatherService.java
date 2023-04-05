@@ -1,4 +1,4 @@
-package com.fowu.weather;
+package main.java;
 
 import java.time.LocalDate;
 

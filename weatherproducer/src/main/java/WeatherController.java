@@ -1,4 +1,4 @@
-package com.fowu.weather;
+package main.java;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -34,7 +34,7 @@ public class WeatherController {
         data.waveDirection()[i],
         data.windSpeed()[i],
         data.windDirection()[i]);
-        
+
     i++;
     return weather;
   }

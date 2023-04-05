@@ -1,4 +1,4 @@
-package com.fowu.strain;
+package main.java;
 
 public class StrainGaugeSimulator {
 

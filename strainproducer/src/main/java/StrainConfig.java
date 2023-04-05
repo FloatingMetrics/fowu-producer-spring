@@ -1,8 +1,9 @@
-package com.fowu.strain;
+package main.java;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fowu.CustomSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +29,7 @@ public class StrainConfig {
     props.putAll(kafkaConfig.producerProperties());
 
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, com.fowu.CustomSerializer.class);
+    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomSerializer.class);
     return new DefaultKafkaProducerFactory<>(props);
   }
 
