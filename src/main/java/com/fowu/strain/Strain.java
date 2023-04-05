@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring.strain;
+package com.fowu.strain;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring.strain;
+package com.fowu.strain;
 
 public class StrainService {
   StrainGaugeSimulator simulator = new StrainGaugeSimulator();

@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring.weather;
+package com.fowu.strain;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,28 +12,28 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
 import com.fasterxml.jackson.databind.ser.std.StringSerializer;
-import com.fowu.fowuproducerspring.kafkaConfig;
+import com.fowu.kafkaConfig;
 
-public class WeatherConfig {
+public class StrainConfig {
 
   @Autowired
   private kafkaConfig kafkaConfig;
 
-  @Value("${kafka.topicWeather}")
+  @Value("${kafka.topicStrain}")
   private String topicName;
 
   @Bean
-  public ProducerFactory<String, Weather> producerFactory() {
+  public ProducerFactory<String, Strain> producerFactory() {
     Map<String, Object> props = new HashMap<>();
     props.putAll(kafkaConfig.producerProperties());
 
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, com.fowu.fowuproducerspring.CustomSerializer.class);
+    props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, com.fowu.CustomSerializer.class);
     return new DefaultKafkaProducerFactory<>(props);
   }
 
   @Bean
-  public KafkaTemplate<String, Weather> kafkaTemplate() {
+  public KafkaTemplate<String, Strain> kafkaTemplate() {
     return new KafkaTemplate<>(producerFactory());
   }
 

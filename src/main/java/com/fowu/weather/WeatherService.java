@@ -1,14 +1,14 @@
-package com.fowu.fowuproducerspring.weather;
+package com.fowu.weather;
 
 import java.time.LocalDate;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.fowu.fowuproducerspring.APImodels.WaveDataAPI;
-import com.fowu.fowuproducerspring.APImodels.MarineDataAPI;
-import com.fowu.fowuproducerspring.APImodels.WeatherDataAPI;
-import com.fowu.fowuproducerspring.APImodels.WindDataAPI;
+import com.fowu.APImodels.MarineDataAPI;
+import com.fowu.APImodels.WaveDataAPI;
+import com.fowu.APImodels.WeatherDataAPI;
+import com.fowu.APImodels.WindDataAPI;
 
 @Service
 public class WeatherService {

@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring.weather;
+package com.fowu.weather;
 
 public class Weather {
 

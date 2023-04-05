@@ -1,7 +1,7 @@
-package com.fowu.fowuproducerspring;
+package com.fowu;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fowu.fowuproducerspring.weather.Weather;
+import com.fowu.weather.Weather;
 
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;

@@ -1,4 +1,4 @@
-package com.fowu.fowuproducerspring.weather;
+package com.fowu.weather;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
