@@ -19,10 +19,10 @@
         <java.version>17</java.version>
     </properties>
 
-<!--    <modules>-->
-<!--        <module>strain</module>-->
-<!--        <module>weather</module>-->
-<!--    </modules>-->
+    <modules>
+        <module>strainproducer</module>
+        <module>weatherproducer</module>
+    </modules>
 
     <dependencies>
         <dependency>
