@@ -3,9 +3,9 @@ WORKDIR .
 COPY . .
 RUN mvn clean package spring-boot:repackage
 
-FROM openjdk:17-slim as producer1
+FROM openjdk:17-slim as weather-producer
 COPY --from=build target /target/
-CMD ["java", "-jar", "target/fowu-producer-spring-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/weatherproducer-0.0.1-SNAPSHOT.jar"]
 
 
 
