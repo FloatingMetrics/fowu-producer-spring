@@ -21,6 +21,12 @@
 
   <dependencies>
     <!-- dependencies for the producer -->
+    <dependency>
+      <groupId>com.fowu</groupId>
+      <artifactId>fowu-producer-spring</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -30,7 +36,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>src.com.producer.StrainProducerApplication</mainClass>
+          <mainClass>com.producer.StrainProducerApplication</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -40,7 +46,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>src.com.producer.StrainProducerApplication</mainClass>
+              <mainClass>com.producer.StrainProducerApplication</mainClass>
             </manifest>
           </archive>
         </configuration>
