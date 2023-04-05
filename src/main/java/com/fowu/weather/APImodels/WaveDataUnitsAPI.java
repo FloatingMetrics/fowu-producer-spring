@@ -1,4 +1,4 @@
-package com.fowu.APImodels;
+package com.fowu.weather.APImodels;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
