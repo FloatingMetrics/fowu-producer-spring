@@ -9,10 +9,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableScheduling
-public class FowuProducerWeatherApplication {
+public class WeatherProducerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FowuProducerWeatherApplication.class, args);
+        SpringApplication.run(WeatherProducerApplication.class, args);
     }
 
     @Bean
