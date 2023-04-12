@@ -33,6 +33,7 @@ services:
     build:
       context: .
       dockerfile: ./common/Dockerfile
+    tty: true # Keep container running
     depends_on:
       - kafka
     networks:
