@@ -1,6 +1,8 @@
 package com.fowu.weatherproducer;
 
-public class Weather {
+import java.io.Serializable;
+
+public class Weather implements Serializable {
 
     String captureTime;
     double waveHeight;
@@ -18,6 +20,8 @@ public class Weather {
         this.windSpeed = windSpeed;
         this.windDirection = windDirection;
     }
+
+
 
     @Override
     public String toString() {
