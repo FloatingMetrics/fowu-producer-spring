@@ -1,9 +1,10 @@
 package com.fowu.strainproducer;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Strain {
+public class Strain implements Serializable {
   String time;
   double strain;
   LocalDateTime localDateTime = LocalDateTime.now();

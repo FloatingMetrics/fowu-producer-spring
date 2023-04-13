@@ -1,5 +1,8 @@
 package com.fowu.strainproducer;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class StrainService {
   StrainGaugeSimulator simulator = new StrainGaugeSimulator();
 
