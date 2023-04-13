@@ -33,7 +33,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.producer.WeatherProducerApplication</mainClass>
+          <mainClass>com.fowu.weatherproducer.WeatherProducerApplication</mainClass>
         </configuration>
         <executions>
           <execution>
@@ -51,7 +51,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.producer.WeatherProducerApplication</mainClass>
+              <mainClass>com.fowu.weatherproducer.WeatherProducerApplication</mainClass>
             </manifest>
           </archive>
         </configuration>

@@ -1,4 +1,4 @@
-package com.producer;
+package com.fowu.strainproducer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;

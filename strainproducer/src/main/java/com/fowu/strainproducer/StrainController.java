@@ -1,4 +1,4 @@
-package com.producer;
+package com.fowu.strainproducer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;

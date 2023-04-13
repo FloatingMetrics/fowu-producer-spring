@@ -1,6 +1,5 @@
-package com.producer;
+package com.fowu.weatherproducer;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
@@ -10,12 +9,12 @@ public class WeatherController {
 
   private final WeatherService weatherService;
   private WeatherData data;
+  private final KafkaTemplate<String, Weather> kafkaTemplate;
 
-  @Autowired
-  private KafkaTemplate<String, Weather> kafkaTemplate;
-
-  public WeatherController(WeatherService weatherService) {
+  public WeatherController(WeatherService weatherService,
+                           KafkaTemplate<String, Weather> kafkaTemplate) {
     this.weatherService = weatherService;
+    this.kafkaTemplate = kafkaTemplate;
   }
 
   int i = 0;
@@ -43,7 +42,7 @@ public class WeatherController {
   public void send() {
     Weather pointData = weatherDataPoints();
     kafkaTemplate.send("weather", pointData);
-    System.out.println(pointData.toString());
+    System.out.println(pointData);
   }
 
 }

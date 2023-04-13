@@ -1,4 +1,4 @@
-package main.java.com.fowu;
+package com.fowu.common;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;

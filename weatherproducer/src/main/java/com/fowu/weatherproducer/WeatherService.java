@@ -1,11 +1,11 @@
-package com.producer;
+package com.fowu.weatherproducer;
 
 import java.time.LocalDate;
 
-import com.producer.APImodels.MarineDataAPI;
-import com.producer.APImodels.WaveDataAPI;
-import com.producer.APImodels.WeatherDataAPI;
-import com.producer.APImodels.WindDataAPI;
+import com.fowu.weatherproducer.APImodels.MarineDataAPI;
+import com.fowu.weatherproducer.APImodels.WaveDataAPI;
+import com.fowu.weatherproducer.APImodels.WeatherDataAPI;
+import com.fowu.weatherproducer.APImodels.WindDataAPI;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

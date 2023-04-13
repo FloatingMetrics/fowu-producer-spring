@@ -34,7 +34,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>com.producer.StrainProducerApplication</mainClass>
+          <mainClass>com.fowu.strainproducer.StrainProducerApplication</mainClass>
         </configuration>
         <executions>
           <execution>
@@ -52,7 +52,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.producer.StrainProducerApplication</mainClass>
+              <mainClass>com.fowu.strainproducer.StrainProducerApplication</mainClass>
             </manifest>
           </archive>
         </configuration>
