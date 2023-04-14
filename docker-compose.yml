@@ -27,17 +27,6 @@ services:
     depends_on:
       - zookeeper
 
-  producers-common:
-    image: producers-common:latest
-    container_name: producers-common
-    build:
-      context: .
-      dockerfile: ./common/Dockerfile
-    tty: true # Keep container running
-    depends_on:
-      - kafka
-    networks:
-      - kafka_network
   weather-producer:
     image: weather-producer:latest
     container_name: weather-producer
@@ -46,7 +35,6 @@ services:
       dockerfile: ./weatherproducer/Dockerfile
     depends_on:
       - kafka
-      - producers-common
     networks:
       - kafka_network
 
@@ -58,7 +46,6 @@ services:
       dockerfile: ./strainproducer/Dockerfile
     depends_on:
       - kafka
-      - producers-common
     networks:
       - kafka_network
 
