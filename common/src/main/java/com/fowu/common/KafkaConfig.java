@@ -17,10 +17,12 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
 
+  private String bootstrapAddress = "kafka:29092";
+
   @Bean
   public Map<String, Object> producerProperties() {
     Map<String, Object> props = new HashMap<>();
-    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+    props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
     props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
     return props;
   }
@@ -28,7 +30,7 @@ public class KafkaConfig {
   @Bean
   public KafkaAdmin kafkaAdmin() {
     Map<String, Object> configs = new HashMap<>();
-    configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+    configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
     return new KafkaAdmin(configs);
 
   }
