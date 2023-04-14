@@ -11,7 +11,7 @@ COPY ./common/pom.xml ./common/src /build/common/
 RUN mvn clean package
 
 FROM openjdk:17-slim as producers-common
-COPY --from=build /build/common/target/common-0.0.1-SNAPSHOT.jar common/target/common-0.0.1-SNAPSHOT.jar
+COPY --from=build /build/common/target/common-0.0.1-SNAPSHOT.jar common-0.0.1-SNAPSHOT.jar
 
 
 
