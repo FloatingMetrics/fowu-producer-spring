@@ -1,11 +1,6 @@
-FROM maven:3.8.6-eclipse-temurin-17-alpine as build
-WORKDIR .
-COPY . .
-RUN mvn clean package spring-boot:repackage
-
 FROM openjdk:17-slim as strain-producer
-COPY --from=build target /target/
-CMD ["java", "-jar", "target/strainproducer-0.0.1-SNAPSHOT.jar"]
+COPY ./strainproducer/target/strainproducer-0.0.1-SNAPSHOT.jar strainproducer.jar
+CMD ["java", "-jar", "strainproducer.jar"]
 
 
 
