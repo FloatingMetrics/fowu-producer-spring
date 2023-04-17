@@ -8,7 +8,7 @@ public class Strain implements Serializable {
   String time;
   double strain;
   LocalDateTime localDateTime = LocalDateTime.now();
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddTHH:mm:ss");
+  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
   public Strain(double strain) {
     this.time = localDateTime.format(formatter);
