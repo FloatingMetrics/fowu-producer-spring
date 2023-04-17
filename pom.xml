@@ -21,7 +21,7 @@
 
   <modules>
     <module>common</module>
-    <module>strainproducer</module>
+    <module>strainproducer1</module>
     <module>weatherproducer</module>
   </modules>
 

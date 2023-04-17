@@ -17,10 +17,10 @@ public class StrainController {
     this.strainService = strainService;
   }
 
-  @Scheduled(fixedDelay = 2000)
+  @Scheduled(fixedDelay = 500)
   public void send() {
     Strain data = strainService.getStrainData();
-    kafkaTemplate.send("strain", data);
+    kafkaTemplate.send("strain", "str001", data);
     System.out.println(data.toString());
   }
 
