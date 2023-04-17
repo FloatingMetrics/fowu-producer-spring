@@ -42,7 +42,7 @@ public class WeatherController {
   @Scheduled(fixedDelay = 1000)
   public void send() {
     Weather pointData = weatherDataPoints();
-    kafkaTemplate.send("weather", pointData);
+    kafkaTemplate.send("weather", "w001", pointData);
     System.out.println(pointData.toString());
   }
 
