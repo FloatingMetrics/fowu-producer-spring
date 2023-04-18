@@ -6,9 +6,7 @@ import org.springframework.stereotype.Service;
 public class StrainService {
   StrainGaugeSimulator simulator = new StrainGaugeSimulator();
 
-  public StrainService() {
-    simulator.setCurrentLevel(0);
-  }
+  public StrainService() {}
 
   public Strain getStrainData() {
     simulator.simulateStrain();
