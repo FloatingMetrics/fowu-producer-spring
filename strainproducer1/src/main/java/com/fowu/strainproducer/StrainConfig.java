@@ -1,11 +1,13 @@
 package com.fowu.strainproducer;
 
 import com.fowu.common.KafkaConfig;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -40,8 +42,11 @@ public class StrainConfig {
   }
 
   @Bean
-  public String topic() {
-    return topicName;
+  public NewTopic topic() {
+    return TopicBuilder.name(topicName)
+                       .partitions(3)
+                       .replicas(1)
+                       .build();
   }
 
 }
