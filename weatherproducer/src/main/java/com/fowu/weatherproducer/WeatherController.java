@@ -28,7 +28,7 @@ public class WeatherController {
       i = 0;
 
     Weather weather = new Weather(
-        data.time()[i],
+        data.captureTime()[i],
         data.waveHeight()[i],
         data.wavePeriod()[i],
         data.waveDirection()[i],
@@ -39,7 +39,7 @@ public class WeatherController {
     return weather;
   }
 
-  @Scheduled(fixedDelay = 1000)
+  @Scheduled(fixedDelay = 1500)
   public void send() {
     Weather pointData = weatherDataPoints();
     kafkaTemplate.send("weather", "w001", pointData);

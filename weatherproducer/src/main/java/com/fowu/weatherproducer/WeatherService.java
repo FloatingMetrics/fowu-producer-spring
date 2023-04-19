@@ -35,7 +35,8 @@ public class WeatherService {
 
     assert waveData != null && windData != null;
 
-    var weatherData = new WeatherData(waveData.time(), waveData.waveHeight(), waveData.wavePeriod(),
+    var weatherData = new WeatherData(waveData.captureTime(),
+                                      waveData.waveHeight(), waveData.wavePeriod(),
         waveData.waveDirection(), windData.windDirection(), windData.windSpeed());
 
     return weatherData;

@@ -1,7 +1,7 @@
 package com.fowu.weatherproducer;
 
 public record WeatherData(
-    String[] time,
+    String[] captureTime,
     double[] waveHeight,
     double[] wavePeriod,
     int[] waveDirection,

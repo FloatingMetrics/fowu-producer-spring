@@ -11,9 +11,9 @@ public class Weather implements Serializable {
     double windSpeed;
     int windDirection;
 
-    public Weather(String time, double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
+    public Weather(String captureTime, double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
 
-        this.captureTime = time;
+        this.captureTime = captureTime;
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
@@ -21,12 +21,34 @@ public class Weather implements Serializable {
         this.windDirection = windDirection;
     }
 
+  public String getCaptureTime() {
+    return captureTime;
+  }
 
+  public double getWaveHeight() {
+    return waveHeight;
+  }
 
-    @Override
+  public double getWavePeriod() {
+    return wavePeriod;
+  }
+
+  public int getWaveDirection() {
+    return waveDirection;
+  }
+
+  public double getWindSpeed() {
+    return windSpeed;
+  }
+
+  public int getWindDirection() {
+    return windDirection;
+  }
+
+  @Override
     public String toString() {
         return "Weather{" +
-                "time=" + captureTime +
+                "captureTime=" + captureTime +
                 ", waveHeight=" + waveHeight +
                 ", wavePeriod=" + wavePeriod +
                 ", waveDirection=" + waveDirection +
