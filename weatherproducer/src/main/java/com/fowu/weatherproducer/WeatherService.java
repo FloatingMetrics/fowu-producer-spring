@@ -17,12 +17,13 @@ public class WeatherService {
   private WaveDataAPI waveData;
   private WeatherDataAPI weatherData;
   private WindDataAPI windData;
-  private final double latitude = 59.316;
-  private final double longitude = 3.738;
+  private final double LATITUDE = 59.316;
+  private final double LONGITUDE = 3.738;
   private LocalDate dateNow = LocalDate.now();
   private final LocalDate endDate = dateNow;
   private final LocalDate startDate = dateNow.minusDays(7);
-  private final String urlLocationAndPeriod = "&latitude=" + latitude + "&longitude=" + longitude + "&start_date=" + startDate + "&end_date=" + endDate;
+  private final String urlLocationAndPeriod = "&latitude=" + LATITUDE + "&longitude=" +
+                                              LONGITUDE + "&start_date=" + startDate + "&end_date=" + endDate;
 
   public WeatherService(RestTemplate restTemplate) {
     this.RestTemplate = restTemplate;

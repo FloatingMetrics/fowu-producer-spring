@@ -10,6 +10,8 @@ public class WeatherController {
 
   private final WeatherService weatherService;
   private WeatherData data;
+  private final String topicName = "weather";
+  private final String key = "w001";
 
   @Autowired
   private KafkaTemplate<String, Weather> kafkaTemplate;
@@ -28,21 +30,21 @@ public class WeatherController {
       i = 0;
 
     Weather weather = new Weather(
-        data.captureTime()[i],
-        data.waveHeight()[i],
-        data.wavePeriod()[i],
-        data.waveDirection()[i],
-        data.windSpeed()[i],
-        data.windDirection()[i]);
+      data.captureTime()[i],
+      data.waveHeight()[i],
+      data.wavePeriod()[i],
+      data.waveDirection()[i],
+      data.windSpeed()[i],
+      data.windDirection()[i]);
 
     i++;
     return weather;
   }
 
-  @Scheduled(fixedDelay = 1500)
+  @Scheduled(fixedDelay = 2000)
   public void send() {
     Weather pointData = weatherDataPoints();
-    kafkaTemplate.send("weather", "w001", pointData);
+    kafkaTemplate.send(topicName, key, pointData);
     System.out.println(pointData.toString());
   }
 
