@@ -38,12 +38,12 @@ services:
     networks:
       - kafka_network
 
-  strain-producer:
-    image: strain-producer:latest
-    container_name: strain-producer
+  strain-producer1:
+    image: strain-producer1:latest
+    container_name: strain-producer1
     build:
       context: .
-      dockerfile: ./strainproducer/Dockerfile
+      dockerfile: ./strainproducer1/Dockerfile
     depends_on:
       - kafka
     networks:
