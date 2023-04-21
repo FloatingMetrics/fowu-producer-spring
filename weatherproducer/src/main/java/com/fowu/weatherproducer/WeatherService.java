@@ -19,11 +19,13 @@ public class WeatherService {
   private WindDataAPI windData;
   private final double LATITUDE = 59.316;
   private final double LONGITUDE = 3.738;
+  private final String TIME_ZONE = "Europe/London";
   private LocalDate dateNow = LocalDate.now();
   private final LocalDate endDate = dateNow;
   private final LocalDate startDate = dateNow.minusDays(7);
   private final String urlLocationAndPeriod = "&latitude=" + LATITUDE + "&longitude=" +
-                                              LONGITUDE + "&start_date=" + startDate + "&end_date=" + endDate;
+                                              LONGITUDE + "&start_date=" + startDate + "&end_date=" + endDate +
+                                              "&timezone=" + TIME_ZONE;
 
   public WeatherService(RestTemplate restTemplate) {
     this.RestTemplate = restTemplate;
