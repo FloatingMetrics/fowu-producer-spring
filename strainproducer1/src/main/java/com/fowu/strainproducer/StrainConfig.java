@@ -44,7 +44,7 @@ public class StrainConfig {
   @Bean
   public NewTopic topic() {
     return TopicBuilder.name(topicName)
-                       .partitions(3)
+                       .partitions(4)
                        .replicas(1)
                        .build();
   }

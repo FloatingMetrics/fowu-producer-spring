@@ -19,10 +19,12 @@ public class StrainController {
   private final String key1 = "str001";
   private final String key2 = "str002";
   private final String key3 = "str003";
+  private final String key4 = "str004";
 
   private final int partition1 = 0;
   private final int partition2 = 1;
   private final int partition3 = 2;
+  private final int partition4 = 3;
 
   @Autowired
   private KafkaTemplate<String, Strain> kafkaTemplate;
@@ -81,6 +83,23 @@ public class StrainController {
       } else {
         System.out.println("Unable to send value=[" +
                            data3 + "] due to : " + ex.getMessage());
+      }
+    });
+
+    //    Strain 4
+    Strain data4 = strainService.getStrainData();
+    CompletableFuture<SendResult<String, Strain>> future4 = kafkaTemplate.send(topicName, partition4, key4, data4);
+    future4.whenComplete((result, ex) -> {
+      if (ex == null) {
+        System.out.println("Sent value=[" + result.getProducerRecord().value() +
+                           "] key=[" + result.getProducerRecord().key() +
+                           "] topic=[" + result.getRecordMetadata().topic() +
+                           "] partition=[" + result.getRecordMetadata().partition() +
+                           "] offset=[" + result.getRecordMetadata().offset() +
+                           "]");
+      } else {
+        System.out.println("Unable to send value=[" +
+                           data4 + "] due to : " + ex.getMessage());
       }
     });
 
