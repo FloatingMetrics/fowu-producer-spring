@@ -13,7 +13,7 @@ public class Weather implements Serializable {
 
     public Weather(String captureTime, double waveHeight, double wavePeriod, int waveDirection, double windSpeed, int windDirection) {
 
-        this.captureTime = captureTime;
+        this.captureTime = captureTime + ":00";
         this.waveHeight = waveHeight;
         this.wavePeriod = wavePeriod;
         this.waveDirection = waveDirection;
