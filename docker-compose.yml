@@ -26,30 +26,29 @@ services:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
     depends_on:
       - zookeeper
-  producer1:
-    image: producer1:latest
-    container_name: producer1
-    networks:
-      - kafka_network
+
+  weather-producer:
+    image: weather-producer:latest
+    container_name: weather-producer
+    build:
+      context: .
+      dockerfile: ./weatherproducer/Dockerfile
     depends_on:
       - kafka
-    build: .
-#  consumer1:
-#    build: ../fowu-consumer
-#    image: consumer:latest
-#    container_name: consumer1
-#    depends_on:
-#      - kafka
-#    networks:
-#      - kafka_network
-#  producer2:
-#    hostname: producer2
-#    container_name: producer2
-#    networks:
-#      - kafka_network
-#    depends_on:
-#      - kafka
-#    build: .
+    networks:
+      - kafka_network
+
+  strain-producer1:
+    image: strain-producer1:latest
+    container_name: strain-producer1
+    build:
+      context: .
+      dockerfile: ./strainproducer1/Dockerfile
+    depends_on:
+      - kafka
+    networks:
+      - kafka_network
+
 networks:
   kafka_network:
     name: kafka_network
